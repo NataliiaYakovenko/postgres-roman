@@ -6,7 +6,7 @@ CREATE TABLE users(
     gender VARCHAR(30) NOT NULL CHECK(gender != ''),
     is_subscribe boolean NOT NULL,
     birthday date CHECK(birthday <= current_date),
-    foot_size smallint,
+    foot_size smallint CONSTRAINT foot_user_less_0 CHECK(foot_size >= 0),
     height numeric(5, 2) CONSTRAINT too_height_user CHECK(height < 2.4)
 );
 INSERT INTO users
@@ -28,8 +28,8 @@ VALUES(
         'female',
         true,
         '1983.10.14',
-        36,
-        2.5
+        -3,
+        2.2
     );
 INSERT INTO users
 VALUES(
