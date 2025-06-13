@@ -1,12 +1,11 @@
-DROP TABLE test;
---Як виконати запит Ctrl E (2 рази)
-/*
- char(5)   передаємо "1,2,3,4,5,6,7" - передається помилка
- varchar(5)  передаємо "1,2,3,4,5,6,7" - передається помилка
- text     max 1GB
- */
+DROP TABLE users;
 CREATE TABLE users(
-    first_name varchar(64),
-    last_name varchar(64),
-    biography text
+    first_name VARCHAR(64),
+    last_name VARCHAR(64),
+    biography text,
+    gender VARCHAR(30),
+    is_subscribe boolean,
+    birthday date,
+    foot_size smallint,
+    height numeric(5, 2)
 );
