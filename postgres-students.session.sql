@@ -1,10 +1,10 @@
 DROP TABLE users;
 CREATE TABLE users(
-    first_name VARCHAR(64),
-    last_name VARCHAR(64),
-    biography text,
-    gender VARCHAR(30),
-    is_subscribe boolean,
+    first_name VARCHAR(64) NOT NULL CHECK(first_name != ''),
+    last_name VARCHAR(64) NOT NULL CHECK(last_name != ''),
+    email VARCHAR(64) NOT NULL CHECK(email != '') UNIQUE,
+    gender VARCHAR(30) NOT NULL CHECK(gender != ''),
+    is_subscribe boolean NOT NULL,
     birthday date,
     foot_size smallint,
     height numeric(5, 2)
@@ -13,7 +13,7 @@ INSERT INTO users
 VALUES(
         'Nataliia',
         'Yakovenko',
-        'I live in Zaporizhzha',
+        'yakovenkonatali999@gmail.com',
         'female',
         true,
         '1983.10.14',
@@ -21,34 +21,13 @@ VALUES(
         158.02
     );
 INSERT INTO users
-VALUES (
-        'Lidia',
+VALUES(
+        'Nataliia',
         'Yakovenko',
-        'I live in Zaporizhzha',
+        'yakovenkonatali999@gmail.com',
         'female',
         true,
-        '1954.01.07',
-        37,
-        159.09
-    ),
-    (
-        'Roll',
-        'Simonyn',
-        'I live in Armeniia',
-        'male',
-        true,
-        '1998.12.27',
-        41,
-        178.32
-    );
-INSERT INTO users
-VALUES(
-        'Bob',
-        'Bobenko',
-        'I live in Zaporizhzha',
-        'male',
-        false,
-        '1999.06.17',
-        NULL,
-        NULL
+        '1983.10.14',
+        36,
+        158.02
     );
