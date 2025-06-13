@@ -5,7 +5,7 @@ CREATE TABLE users(
     email VARCHAR(64) NOT NULL CHECK(email != '') UNIQUE,
     gender VARCHAR(30) NOT NULL CHECK(gender != ''),
     is_subscribe boolean NOT NULL,
-    birthday date,
+    birthday date CHECK(birthday <= current_date),
     foot_size smallint,
     height numeric(5, 2) CONSTRAINT too_height_user CHECK(height < 2.4)
 );
@@ -30,4 +30,15 @@ VALUES(
         '1983.10.14',
         36,
         2.5
+    );
+INSERT INTO users
+VALUES(
+        'Nata',
+        'Yakov',
+        'n999@gmail.com',
+        'female',
+        true,
+        '2025.06.20',
+        36,
+        1.5
     );
