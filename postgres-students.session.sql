@@ -1,28 +1,12 @@
-DROP TABLE messages;
-
-CREATE TABLE messages(
-    id SERIAL PRIMARY KEY,
-    body TEXT NOT NULL CHECK(body != ''),
-    author VARCHAR(256) NOT NULL CHECK(author != ''),
-    created_at TIMESTAMP DEFAULT current_timestamp,
-    is_read BOOLEAN DEFAULT false
+DROP TABLE coordinates;
+CREATE TABLE coordinates(
+    x INTEGER,
+    y INTEGER,
+    z INTEGER,
+    CONSTRAINT "unique_coord" PRIMARY KEY(x, y, z)
 );
-INSERT INTO messages
-VALUES('Hello, Jon', 'I am author');
-
-INSERT INTO messages(author,body)
+INSERT INTO coordinates
 VALUES
-('Jon', 'Hello'),
-('Me', 'Hello, Jon'),
-('Jon','Let is go to drink coffe'),
-('Me', 'Yes, let is go');
-
-
-INSERT INTO messages(author,body)
-VALUES
-('Jon', 'Hello'),
-('Jon', 'Hello');
-
-
-INSERT INTO messages
-VALUES('140','Jon', 'Me');
+(111, 34, 25),
+(113, 55, 78),
+(117, 77, 58);
