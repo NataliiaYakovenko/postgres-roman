@@ -1,44 +1,28 @@
-DROP TABLE users;
-CREATE TABLE users(
-    first_name VARCHAR(64) NOT NULL CONSTRAINT first_name_not_empty CHECK(first_name != ''),
-    last_name VARCHAR(64) NOT NULL CONSTRAINT last_name_not_empty CHECK(last_name != ''),
-    email VARCHAR(64) NOT NULL CHECK(email != '') UNIQUE,
-    gender VARCHAR(30) NOT NULL CHECK(gender != ''),
-    is_subscribe boolean NOT NULL,
-    birthday date CHECK(birthday <= current_date),
-    foot_size smallint CONSTRAINT foot_user_less_0 CHECK(foot_size >= 0),
-    height numeric(5, 2) CONSTRAINT too_height_user CHECK(height < 2.4)
+DROP TABLE messages;
+
+CREATE TABLE messages(
+    id SERIAL PRIMARY KEY,
+    body TEXT NOT NULL CHECK(body != ''),
+    author VARCHAR(256) NOT NULL CHECK(author != ''),
+    created_at TIMESTAMP DEFAULT current_timestamp,
+    is_read BOOLEAN DEFAULT false
 );
-INSERT INTO users
-VALUES(
-        'Nataliia',
-        'Yakovenko',
-        'yakovenkonatali999@gmail.com',
-        'female',
-        true,
-        '1983.10.14',
-        36,
-        1.58
-    );
-INSERT INTO users
-VALUES(
-        'Nataliia',
-        'Yakovenko',
-        'natali999@gmail.com',
-        'female',
-        true,
-        '1983.10.14',
-        -3,
-        2.2
-    );
-INSERT INTO users
-VALUES(
-        'Nata',
-        'Yakov',
-        'n999@gmail.com',
-        'female',
-        true,
-        '2025.06.20',
-        36,
-        1.5
-    );
+INSERT INTO messages
+VALUES('Hello, Jon', 'I am author');
+
+INSERT INTO messages(author,body)
+VALUES
+('Jon', 'Hello'),
+('Me', 'Hello, Jon'),
+('Jon','Let is go to drink coffe'),
+('Me', 'Yes, let is go');
+
+
+INSERT INTO messages(author,body)
+VALUES
+('Jon', 'Hello'),
+('Jon', 'Hello');
+
+
+INSERT INTO messages
+VALUES('140','Jon', 'Me');
