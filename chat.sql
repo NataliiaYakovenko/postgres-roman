@@ -1,6 +1,6 @@
 CREATE DATABASE chats;
 
-DROP TABLE users;
+
 CREATE TABLE users(
    id SERIAL PRIMARY KEY,
    nickname  VARCHAR (100) CHECK(nickname != '') NOT NULL
@@ -12,7 +12,6 @@ VALUES ('Natakia'),
 
 
 
-DROP TABLE chats;
 CREATE TABLE chats(
      id SERIAL PRIMARY KEY,
     name  VARCHAR (260) CHECK(name != '') NOT NULL,
@@ -25,7 +24,7 @@ VALUES ('Super chat', 1),
        ('Shop chat', 3);
 
 
-DROP TABLE chats_to_users;
+
 CREATE TABLE chats_to_users(
       chat_id INT REFERENCES chats(id),
       user_id INT REFERENCES users(id),
@@ -41,7 +40,7 @@ INSERT INTO chats_to_users(chat_id,user_id)
 VALUES (1, 2);      
 
 
-DROP TABLE messages;
+
 CREATE TABLE messages(
     id SERIAL PRIMARY KEY,
     body TEXT CHECK(body != '') NOT NULL,
