@@ -13,4 +13,13 @@ VALUES ( 'IPhone','15Pro', 1300 ),
 
 ALTER TABLE priducts
 ADD COLUMN is_luxury BOOLEAN GENERATED ALWAYS AS (price > 800) STORED;  
-       
+
+UPDATE priducts
+SET price = price * 3 WHERE price < 700;   
+
+INSERT INTO priducts (brand, model, price, category)
+VALUES ('Nokia', 'New', 1400, 'phones') RETURNING id;
+
+
+INSERT INTO priducts (brand, model, price, category)
+VALUES ('Nokia', '33333333', 1000, 'phones') RETURNING *;
