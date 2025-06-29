@@ -23,7 +23,7 @@ VALUES ('funy dogs', 3);
 
 CREATE TABLE reactions(
     content_id INT REFERENCES contents(id) ON DELETE CASCADE,
-    user_id INT REFERENCES users(id),
+    user_id INT REFERENCES users(id) ON UPDATE CASCADE ON DELETE RESTRICT,
     is_liked BOOLEAN
 );
 
