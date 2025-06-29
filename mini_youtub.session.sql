@@ -19,11 +19,16 @@ CREATE TABLE contents(
 
 INSERT INTO contents(name, author_id)
 VALUES ('funy dogs', 3);
+
+
 CREATE TABLE reactions(
-    content_id INT REFERENCES contents(id),
+    content_id INT REFERENCES contents(id) ON DELETE CASCADE,
     user_id INT REFERENCES users(id),
     is_liked BOOLEAN
 );
 
 INSERT INTO reactions(content_id, user_id, is_liked)
 VALUES (1, 1, true);
+
+
+DELETE FROM contents WHERE id = 1;
