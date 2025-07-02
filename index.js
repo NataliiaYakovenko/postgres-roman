@@ -1,4 +1,5 @@
 const { Client } = require("pg");
+const { mapUsers } = require("./utils/index");
 
 const configs = {
   host: "localhost",
@@ -10,20 +11,39 @@ const configs = {
 
 const client = new Client(configs);
 
-const user = {
-  firstName: "Diana",
-  lastName: "Duwm",
-  email: "dowm@gmail.com",
-  isSubscribe: true,
-  gender: 'female'
-};
+const usersArray = [
+  {
+    firstName: "Tom",
+    lastName: "Tomson",
+    email: "tom@gmail.com",
+    isSubscribe: true,
+    gender: "male",
+  },
+  {
+    firstName: "Jerry",
+    lastName: "Jons",
+    email: "jons@gmail.com",
+    isSubscribe: true,
+    gender: "female",
+  },
+  {
+    firstName: "Lora",
+    lastName: "Pol",
+    email: "lora@gmail.com",
+    isSubscribe: true,
+    gender: "female",
+  },
+];
 
 async function runRequest() {
   await client.connect();
 
+  console.log(`INSERT INTO users(first_name, last_name, email, is_subscribe, gender)
+         VALUES ${mapUsers(usersArray)}`);
+
   const response = await client.query(
     `INSERT INTO users(first_name, last_name, email, is_subscribe, gender)
-         VALUES ('${user.firstName}','${user.lastName}','${user.email}', ${user.isSubscribe}, '${user.gender}')`
+         VALUES ${mapUsers(usersArray)}`
   );
   console.log(response);
 
