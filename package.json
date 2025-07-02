@@ -1,0 +1,23 @@
+{
+  "name": "postgres-roman",
+  "version": "0.1.0",
+  "private": "true",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NataliiaYakovenko/postgres-roman.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NataliiaYakovenko/postgres-roman/issues"
+  },
+  "homepage": "https://github.com/NataliiaYakovenko/postgres-roman#readme",
+  "description": "",
+  "dependencies": {
+    "pg": "^8.16.3"
+  }
+}

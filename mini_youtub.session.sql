@@ -9,6 +9,7 @@ INSERT INTO users(nickname)
 VALUES ('Natalia'),
     ('Jon'),
     ('Pheabi');
+    
 CREATE TABLE contents(
     id SERIAL PRIMARY KEY,
     name VARCHAR (256) CHECK(name != '') NOT NULL,
