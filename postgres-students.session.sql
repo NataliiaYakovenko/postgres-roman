@@ -23,3 +23,7 @@ VALUES ('Nokia', 'New', 1400, 'phones') RETURNING id;
 
 INSERT INTO priducts (brand, model, price, category)
 VALUES ('Nokia', '33333333', 1000, 'phones') RETURNING *;
+
+DELETE 
+FROM users
+WHERE id >= 867;
