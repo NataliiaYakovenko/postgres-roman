@@ -1,5 +1,5 @@
-const { User, client } = require("./models/User");
-const { getUsers } = require("./api/index");
+const { User, client } = require("./models");
+const { getUsers } = require("./api");
 
 async function runRequest() {
   await client.connect();
