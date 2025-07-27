@@ -31,8 +31,11 @@ CREATE TABLE orders(
     );
 
 CREATE TABLE orders_to_products(
-  order_id int REFERENCES orders(id),
   product_id int REFERENCES products(id),
+  order_id int REFERENCES orders(id),
   quantity int DEFAULT 1 NOT NULL,
   PRIMARY KEY (order_id, product_id)
 );
+
+
+DELETE FROM orders
