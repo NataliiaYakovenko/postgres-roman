@@ -27,8 +27,8 @@ CREATE TABLE products(
 CREATE TABLE orders(
     id SERIAL PRIMARY KEY,
     create_ad timestamp NOT NULL DEFAULT current_timestamp,
-    custamer_id int REFERENCES users(id),
-);
+    custamer_id int REFERENCES users(id)
+    );
 
 CREATE TABLE orders_to_products(
   order_id int REFERENCES orders(id),
