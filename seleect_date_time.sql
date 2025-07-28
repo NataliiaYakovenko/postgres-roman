@@ -23,3 +23,8 @@ FROM users
 -- варіант 2
 SELECT id,first_name, last_name, birthday, extract('years' from age(birthday))
 FROM users
+
+//------------------------------------------------------------------
+-- make_interval(years, month, days) - функція, яка створює власний інтервал
+SELECT id,first_name, last_name, make_interval(40,8,20)
+FROM users
