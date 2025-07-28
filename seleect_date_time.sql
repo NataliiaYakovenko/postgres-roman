@@ -39,3 +39,25 @@ WHERE extract('years' from age(birthday)) BETWEEN 14 AND 20
 -- українські слова відображаються в подвійних ліпках " "
 SELECT id AS "особливий номер", first_name AS "ім'я", last_name AS "прізвище", extract('years' from age(birthday)) AS years
 FROM users
+
+//----------------------------------------------------------------------
+
+--ПАГІНАЦІЯ
+-- сторінки
+-- яка кількість результатів буде на одній сторінці
+
+-- отримати тільки 50 користувачів
+SELECT id,first_name, last_name
+FROM users
+LIMIT 50
+
+
+-- отримати тільки 50 користувачів на другій сторінці
+SELECT id,first_name, last_name
+FROM users
+LIMIT 50
+OFFSET 50
+
+--Як нам дізнатися скілька потрібно відступати
+-- формула для розрахунку OFFSET
+--  OFFSET * сторінку, яку ми запитуємо -1
