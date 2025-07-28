@@ -173,7 +173,9 @@ INSERT INTO users (
         birthday
     )
 VALUES ('Den', 'Dregon', 'den@gmail.com', 'male', TRUE, '1999-08-12')
-RETURNING *;INSERT INTO users (
+RETURNING *;
+
+INSERT INTO users (
         first_name,
         last_name,
         email,
