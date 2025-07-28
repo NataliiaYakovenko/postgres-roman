@@ -1,8 +1,8 @@
 CREATE TABLE emploees(
     id SERIAL PRIMARY KEY,
     first_name varchar(64) NOT NULL CHECK(first_name != ''),
-    salary NUMERIC(10, 2),
-    work_hours NUMERIC(5, 2)
+    salary NUMERIC(10, 2) NOT NULL CHECK(salary >= 0),
+    work_hours NUMERIC(5, 2) NOT NULL CHECK(work_hours  >= 0)
 )
 
 INSERT INTO emploees (first_name, salary, work_hours)
