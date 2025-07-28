@@ -28,3 +28,14 @@ FROM users
 -- make_interval(years, month, days) - функція, яка створює власний інтервал
 SELECT id,first_name, last_name, make_interval(40,8,20)
 FROM users
+//--------------------------------------------------------------------------
+
+-- Знайти користувачів віком від 14 до 20 років
+SELECT id,first_name, last_name, birthday, extract('years' from age(birthday))
+FROM users
+WHERE extract('years' from age(birthday)) BETWEEN 14 AND 20
+
+-- АЛІАСИ або ПСЕВДОНІМИ
+-- українські слова відображаються в подвійних ліпках " "
+SELECT id AS "особливий номер", first_name AS "ім'я", last_name AS "прізвище", extract('years' from age(birthday)) AS years
+FROM users
