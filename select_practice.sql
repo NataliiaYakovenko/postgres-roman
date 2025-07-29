@@ -48,18 +48,23 @@ SELECT id, name, salary, birthday, age(birthday)
 FROM workers
 WHERE name = 'Nataliia'
 
+-- 2 ВІРНИЙ ВАРІАНТ
+SELECT *, EXTRACT(YEARS FROM age(birthday)) 
+FROM workers
+WHERE name = 'Nataliia'
+
 --знайти працівника з ім'ям 'Evgen'
 SELECT *
 FROM workers
 WHERE name = 'Evgen'
 
---знайти робітників, які мають вік 41 або отримають зп < 800
-SELECT id, name, salary, birthday, EXTRACT(YEAR FROM AGE(birthday)) AS age
+--знайти робітників, які мають вік 41 або отримають зп < 500
+SELECT *, EXTRACT(YEAR FROM AGE(birthday)) AS age
 FROM workers
 WHERE EXTRACT(YEAR FROM AGE(birthday)) = 41 OR salary < 500;
 
 --вибрати всіх робітників у віці від 35 до 50 років
-SELECT * 
+SELECT * , EXTRACT(YEAR FROM AGE(birthday)) AS age
 FROM workers
 WHERE EXTRACT(YEAR FROM AGE(birthday)) BETWEEN 35 AND 50
 
