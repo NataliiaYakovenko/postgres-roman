@@ -40,3 +40,24 @@ SELECT *
 FROM priducts
 ORDER BY quantity 
 LIMIT 1
+
+//---------------------------------------------------
+--вдсортувати users за віком за збільшенням  потім за зменшенням
+SELECT EXTRACT(YEAR FROM AGE(birthday))
+FROM users
+ORDER BY EXTRACT(YEAR FROM AGE(birthday)) ASC
+
+SELECT EXTRACT(YEAR FROM AGE(birthday))
+FROM users
+ORDER BY EXTRACT(YEAR FROM AGE(birthday)) DESC
+
+--відсортуйте телефони від найдорожчого до найдешевшого
+SELECT *
+FROM priducts
+ORDER BY price DESC
+
+--виведіть топ 3 найдорожчих телефонів
+SELECT *
+FROM priducts
+ORDER BY price DESC
+LIMIT 3
