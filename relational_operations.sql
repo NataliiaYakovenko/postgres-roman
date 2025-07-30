@@ -80,4 +80,31 @@ SELECT *
 FROM b
 
 
+--Різниця
+-- отримуємо значення в таблиці B, яких немає в таблиці A
+--отримуємо тільки значення з таблиці B, не включаються значення з таблиці B , які однакові з значенням табоиці A
+SELECT *
+FROM b
+EXCEPT
+SELECT v 
+FROM a
+//-------------------------------------------------------------------------
 
+INSERT INTO users (first_name,last_name, email,gender,is_subscribe, birthday)
+VALUES ('Bella', 'Swon', 'swon@gmail.com', 'female', true,'1999-06-23'),
+       ('Joe', 'Trogan', 'trogan@gmail.com', 'male', true,'1997-03-13'),
+       ('Liia', 'Nixon', 'nixon@gmail.com', 'female', false,'2000-09-18');
+
+--Знайти id users які робили замовлення
+SELECT id 
+FROM users
+INTERSECT
+SELECT costumer_id
+FROM orders
+ 
+--знайти id users, які ніколи не робили замовлення
+SELECT id 
+FROM users
+EXCEPT
+SELECT costumer_id
+FROM orders
