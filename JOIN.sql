@@ -91,4 +91,29 @@ WHERE id IN (
        FROM orders
 )
 
+//------------------------------------------------------------------
+INSERT INTO priducts (brand,model,category,price,quantity)
+VALUES ('iPhone','16','phones', 1500, 9 );
+
+--Знайдіть телефони, які ніхто не купував
+SELECT *
+FROM priducts AS p LEFT JOIN orders_to_products AS otp 
+ON p.id = otp.product_id
+WHERE otp.product_id IS NULL
+
+--Знайдіть кількість позицій у кожному замовлені
+--Потрібно створити групу по order_id,
+SELECT order_id, count(*) AS "quantity"
+FROM orders_to_products
+GROUP BY order_id
+
+--Знайти найпопулярніший товар
+SELECT brand, count(*)
+FROM orders_to_products AS otp JOIN priducts AS p
+ON p.id = otp.product_id
+GROUP BY p.brand 
+ORDER BY count(*) DESC
+LIMIT 1
+
+
 
