@@ -115,5 +115,14 @@ GROUP BY p.brand
 ORDER BY count(*) DESC
 LIMIT 1
 
+--варіант 2
+--Знайти найпопулярніший товар
+SELECT p.brand,model, id, sum(otp.quntity)
+FROM orders_to_products AS otp JOIN priducts AS p
+ON p.id = otp.product_id
+GROUP BY p.id
+ORDER BY sum(otp.quntity) DESC
+LIMIT 1
+
 
 
