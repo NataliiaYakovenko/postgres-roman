@@ -43,13 +43,17 @@ LIMIT 1
 
 //---------------------------------------------------
 --вдсортувати users за віком за збільшенням  потім за зменшенням
-SELECT EXTRACT(YEAR FROM AGE(birthday))
+SELECT *
 FROM users
-ORDER BY EXTRACT(YEAR FROM AGE(birthday)) ASC
+ORDER BY birthday DESC
 
 SELECT EXTRACT(YEAR FROM AGE(birthday))
 FROM users
 ORDER BY EXTRACT(YEAR FROM AGE(birthday)) DESC
+
+SELECT EXTRACT(YEAR FROM AGE(birthday))
+FROM users
+ORDER BY EXTRACT(YEAR FROM AGE(birthday)) ASC
 
 --відсортуйте телефони від найдорожчого до найдешевшого
 SELECT *
