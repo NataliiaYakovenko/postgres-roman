@@ -61,3 +61,34 @@ FROM orders_to_products AS otp JOIN priducts AS p
 ON p.id = otp.product_id
 GROUP BY p.brand
 ORDER BY "quantity"
+
+--знайти id users, які робили замовлення
+SELECT *
+FROM users AS u JOIN orders AS o 
+ON u.id = o.costumer_id
+
+--знайти id users, і сумарну кілкість замовлень кожного юзера
+SELECT u.*, count(*)
+FROM users AS u JOIN orders AS o 
+ON u.id = o.costumer_id
+GROUP BY u.id
+
+
+--знайти id users, які ніколи не робили замовлення
+SELECT *
+FROM users AS u LEFT JOIN orders AS o 
+ON u.id = o.costumer_id
+WHERE o.costumer_id IS NULL
+
+--варіант 2
+SELECT *
+FROM users
+WHERE id IN (
+       SELECT id
+       FROM users
+       EXCEPT
+       SELECT costumer_id
+       FROM orders
+)
+
+
