@@ -55,3 +55,9 @@ GROUP BY u.id
 ORDER BY "sum"
 
 
+
+DROP VIEW orders_with_price 
+
+DROP VIEW  users_with_orders_amount
+
+

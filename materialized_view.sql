@@ -32,3 +32,8 @@ $$
 LANGUAGE plpgsql;
 
 SELECT refresh_materialized_view()
+
+
+DROP FUNCTION refresh_materialized_view
+
+DROP MATERIALIZED VIEW total_orders
